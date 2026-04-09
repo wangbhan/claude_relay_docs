@@ -82,7 +82,7 @@ export default defineConfig({
     },
 
     editLink: {
-      pattern: 'https://github.com/your-repo/edit/main/docs/:path',
+      pattern: 'https://github.com/wangbhan/claude_relay_docs/edit/main/docs/:path',
       text: '在 GitHub 上编辑此页面',
     },
 
@@ -92,7 +92,7 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/your-repo' },
+      { icon: 'github', link: 'https://github.com/wangbhan/claude_relay_docs' },
     ],
 
     outline: {
