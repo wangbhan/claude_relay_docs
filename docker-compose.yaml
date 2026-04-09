@@ -4,4 +4,4 @@ services:
     container_name: api-relay-docs
     restart: unless-stopped
     ports:
-      - "${PORT:-80}:80"
+      - "${PORT:-8686}:80"
