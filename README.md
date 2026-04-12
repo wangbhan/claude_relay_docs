@@ -1,4 +1,4 @@
-# AI API 中转站 - 服务文档
+# AuraLinks - 服务文档
 
 > 高速、稳定的 AI API 中转服务文档站，基于 VitePress 构建。
 

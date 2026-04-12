@@ -1,16 +1,16 @@
 ---
 layout: home
 hero:
-  name: AI API 中转站
+  name: AuraLinks
   text: 高速稳定的 AI API 转发服务
   tagline: 一键接入 Claude、GPT 等主流 AI 模型，享受低延迟、高可用的 API 体验
   actions:
     - theme: brand
-      text: 快速开始
+      text: 快速部署
       link: /guide/getting-started
     - theme: alt
-      text: 安装配置
-      link: /guide/installation
+      text: 拼车社区
+      link: /community
     - theme: alt
       text: 了解更多
       link: /guide/examples

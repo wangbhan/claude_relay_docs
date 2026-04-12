@@ -3,7 +3,7 @@ import { getSidebar } from './utils/sidebar'
 
 export default defineConfig({
   lang: 'zh-CN',
-  title: 'AI API 中转站',
+  title: 'AuraLinks',
   description: '高速、稳定的 AI API 中转服务文档',
 
   head: [
@@ -81,14 +81,9 @@ export default defineConfig({
       },
     },
 
-    editLink: {
-      pattern: 'https://github.com/wangbhan/claude_relay_docs/edit/main/docs/:path',
-      text: '在 GitHub 上编辑此页面',
-    },
-
     footer: {
       message: '基于 MIT 许可发布',
-      copyright: '© 2024-2026 AI API 中转站',
+      copyright: '© 2024-2026 AuraLinks',
     },
 
     socialLinks: [
@@ -103,10 +98,6 @@ export default defineConfig({
     docFooter: {
       prev: '上一篇',
       next: '下一篇',
-    },
-
-    lastUpdated: {
-      text: '最后更新于',
     },
 
     returnToTopLabel: '回到顶部',
