@@ -1,6 +1,6 @@
 # 快速开始
 
-本页帮助你快速接入 AI API 中转站服务，5 分钟内完成首次调用。
+本页帮助你快速接入 AuraLinks 服务，5 分钟内完成首次调用。
 
 ## 前提条件
 
@@ -12,14 +12,14 @@
 联系管理员注册账号后，你将获得一个专属的 API Key，格式如下：
 
 ```
-sk-relay-xxxxxxxxxxxxxxxxxxxxxxxx
+cr-xxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
 > ⚠️ 请妥善保管你的 API Key，不要泄露给他人。
 
 ## 2. 配置 Base URL
 
-将你的 API 客户端的 `base_url` 修改为中转站地址：
+将你的 API 客户端的 `base_url` 修改为中转站地址（找管理员获取）：
 
 ```
 https://api.your-relay.com/v1
@@ -27,10 +27,10 @@ https://api.your-relay.com/v1
 
 ## 3. 发起第一次请求
 
-使用 cURL 快速测试：
+使用 CURL 快速测试是否正常：
 
 ```bash
-curl https://api.your-relay.com/v1/chat/completions \
+curl base_url/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer sk-relay-xxxxxxxxxxxxxxxxxxxxxxxx" \
   -d '{
@@ -47,8 +47,8 @@ curl https://api.your-relay.com/v1/chat/completions \
 from openai import OpenAI
 
 client = OpenAI(
-    api_key="sk-relay-xxxxxxxxxxxxxxxxxxxxxxxx",
-    base_url="https://api.your-relay.com/v1"
+    api_key="你的key",
+    base_url="你的url"
 )
 
 response = client.chat.completions.create(
