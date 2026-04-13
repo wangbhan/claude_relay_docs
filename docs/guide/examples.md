@@ -2,6 +2,41 @@
 
 各种语言和场景下的 API 调用示例。
 
+## Claude Code
+
+配置好环境变量后（参考 [安装配置](/guide/installation#配置环境变量)），可以直接在终端中使用 Claude Code。
+
+### 交互模式
+
+```bash
+# 进入项目目录并启动
+cd /path/to/your/project
+claude
+```
+
+启动后直接输入问题即可，Claude Code 会自动读取项目上下文。
+
+### 非交互模式
+
+```bash
+# 直接提问
+claude -p "用 Python 写一个快速排序算法"
+
+# 通过管道传入内容
+echo "解释这段代码" | claude
+
+# 让 Claude Code 审查代码文件
+claude -p "$(cat main.py)" "请 review 这段代码"
+```
+
+### 项目上下文使用
+
+Claude Code 会自动读取当前项目目录下的文件作为上下文。你可以：
+
+- 在项目根目录运行 `claude` 获取项目级别的编程辅助
+- 使用 `.claudeignore` 文件排除不需要的文件（类似 `.gitignore`）
+- 支持多轮对话，自动维护上下文
+
 ## Python
 
 ### 基础调用
@@ -10,7 +45,7 @@
 from openai import OpenAI
 
 client = OpenAI(
-    api_key="sk-relay-xxxxxxxxxxxxxxxxxxxxxxxx",
+    api_key="cr-xxxxxxxxxxxxxxxxxxxxxxxx",
     base_url="https://api.your-relay.com/v1"
 )
 
@@ -74,7 +109,7 @@ while True:
 import OpenAI from 'openai'
 
 const client = new OpenAI({
-  apiKey: 'sk-relay-xxxxxxxxxxxxxxxxxxxxxxxx',
+  apiKey: 'cr-xxxxxxxxxxxxxxxxxxxxxxxx',
   baseURL: 'https://api.your-relay.com/v1'
 })
 
@@ -111,7 +146,7 @@ for await (const chunk of stream) {
 ```bash
 curl https://api.your-relay.com/v1/chat/completions \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer sk-relay-xxxxxxxxxxxxxxxxxxxxxxxx" \
+  -H "Authorization: Bearer cr-xxxxxxxxxxxxxxxxxxxxxxxx" \
   -d '{
     "model": "claude-sonnet-4-20250514",
     "messages": [
@@ -125,7 +160,7 @@ curl https://api.your-relay.com/v1/chat/completions \
 ```bash
 curl https://api.your-relay.com/v1/chat/completions \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer sk-relay-xxxxxxxxxxxxxxxxxxxxxxxx" \
+  -H "Authorization: Bearer cr-xxxxxxxxxxxxxxxxxxxxxxxx" \
   -d '{
     "model": "claude-sonnet-4-20250514",
     "messages": [
@@ -143,7 +178,7 @@ curl https://api.your-relay.com/v1/chat/completions \
 from openai import OpenAI, APIError, APIConnectionError, RateLimitError
 
 client = OpenAI(
-    api_key="sk-relay-xxxxxxxxxxxxxxxxxxxxxxxx",
+    api_key="cr-xxxxxxxxxxxxxxxxxxxxxxxx",
     base_url="https://api.your-relay.com/v1"
 )
 
@@ -175,7 +210,7 @@ except APIError as e:
 from openai import OpenAI
 
 client = OpenAI(
-    api_key="sk-relay-xxxxxxxxxxxxxxxxxxxxxxxx",
+    api_key="cr-xxxxxxxxxxxxxxxxxxxxxxxx",
     base_url="https://api.your-relay.com/v1",
     max_retries=3  # 自动重试 3 次
 )

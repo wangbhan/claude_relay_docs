@@ -5,7 +5,7 @@
 ## 前提条件
 
 - 已注册并获取 API Key（[联系管理员获取](/community)）
-- 已安装对应语言的 SDK（或使用 cURL）
+- 已安装对应语言的 SDK（或使用 Claude Code / cURL）
 
 ## 1. 获取 API Key
 
@@ -15,7 +15,7 @@
 cr-xxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
-> ⚠️ 请妥善保管你的 API Key，不要泄露给他人。
+> 请妥善保管你的 API Key，不要泄露给他人。
 
 ## 2. 配置 Base URL
 
@@ -27,12 +27,34 @@ https://api.your-relay.com/v1
 
 ## 3. 发起第一次请求
 
-使用 CURL 快速测试是否正常：
+### 使用 Claude Code（推荐）
+
+如果你已安装 [Claude Code](/guide/installation#claude-code)，只需设置环境变量即可开始：
+
+::: code-group
+
+```powershell [Windows]
+$env:ANTHROPIC_BASE_URL = "https://api.your-relay.com/v1"
+$env:ANTHROPIC_AUTH_TOKEN = "cr-xxxxxxxxxxxxxxxxxxxxxxxx"
+claude
+```
+
+```bash [macOS / Linux]
+export ANTHROPIC_BASE_URL="https://api.your-relay.com/v1"
+export ANTHROPIC_AUTH_TOKEN="cr-xxxxxxxxxxxxxxxxxxxxxxxx"
+claude
+```
+
+:::
+
+> 还没安装 Claude Code？查看 [安装配置](/guide/installation#claude-code) 了解详细步骤。
+
+### 使用 cURL
 
 ```bash
-curl base_url/v1/chat/completions \
+curl https://api.your-relay.com/v1/chat/completions \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer sk-relay-xxxxxxxxxxxxxxxxxxxxxxxx" \
+  -H "Authorization: Bearer cr-xxxxxxxxxxxxxxxxxxxxxxxx" \
   -d '{
     "model": "claude-sonnet-4-20250514",
     "messages": [
@@ -41,14 +63,14 @@ curl base_url/v1/chat/completions \
   }'
 ```
 
-使用 Python SDK：
+### 使用 Python SDK
 
 ```python
 from openai import OpenAI
 
 client = OpenAI(
-    api_key="你的key",
-    base_url="你的url"
+    api_key="cr-xxxxxxxxxxxxxxxxxxxxxxxx",
+    base_url="https://api.your-relay.com/v1"
 )
 
 response = client.chat.completions.create(
@@ -86,5 +108,5 @@ print(response.choices[0].message.content)
 
 ## 下一步
 
-- [安装配置](/guide/installation) — 了解各客户端的详细配置方法
+- [安装配置](/guide/installation) — 了解 Claude Code 详细安装、Node.js 环境配置及各客户端设置
 - [使用示例](/guide/examples) — 查看更多语言和场景的调用示例
