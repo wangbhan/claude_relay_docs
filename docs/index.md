@@ -6,7 +6,7 @@ hero:
   tagline: 一键接入 Claude、GPT 等主流 AI 模型，享受低延迟、高可用的 API 体验
   actions:
     - theme: brand
-      text: 快速部署
+      text: 阅读全部
       link: /guide/getting-started
     - theme: alt
       text: 拼车社区
